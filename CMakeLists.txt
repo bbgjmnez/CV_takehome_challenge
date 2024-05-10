@@ -5,8 +5,9 @@ include(CTest)
 enable_testing()
 
 add_executable(cv_takehome_challenge main.cpp)
+add_subdirectory(ext/nlohmann_json)
 find_package(Eigen3 3.4 NO_MODULE)
-target_link_libraries(cv_takehome_challenge Eigen3::Eigen)
+target_link_libraries(cv_takehome_challenge Eigen3::Eigen nlohmann_json::nlohmann_json)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
