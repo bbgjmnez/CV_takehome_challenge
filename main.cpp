@@ -5,6 +5,8 @@
 #include "Eigen/Dense"
 #include "nlohmann/json.hpp"
 
+#include "ply_stream.hpp"
+
 // this is a pinhole camera model, with zero distortion or skew
 struct Intrinsic {
     Eigen::Matrix3f K; // intrinsic matrix K
@@ -89,7 +91,17 @@ int main(int, char**){
     std::vector<Eigen::Vector3f> points;
     ParseSceneDataJson(intrinsic, extrinsics, points, json_file_path);
 
-    // TODO: do stuff here
 
+    // write results to this folder:
+    const std::string output_folder = "/workspaces/CV_takehome_challenge/";
+
+    // // here's an example of how to use the PointPlyStream class (ply_stream.hpp) to write the point cloud to a .ply file:
+    // PointPlyStream ply_stream(output_folder + "pt_cloud.ply");
+    // ply_stream.WriteHeader({"float x", "float y", "float z", "uchar red", "uchar green", "uchar blue"});
+    // for (const auto &pt : points) {
+    //     ply_stream << pt.x() << pt.y() << pt.z() << (unsigned char)0 << (unsigned char)255 << (unsigned char)255;
+    // }
+
+    // TODO: do your stuff here
 
 }
